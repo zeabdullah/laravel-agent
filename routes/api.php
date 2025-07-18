@@ -2,13 +2,15 @@
 
 use App\Http\Controllers\Agent\AgentWithUuidController;
 use App\Http\Controllers\Agent\AgentController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'agents'], function () {
     Route::get('/', [AgentController::class, 'get']);
-    Route::get('/names', [AgentController::class, 'listAgentNames']);
     Route::post('/', [AgentController::class, 'create']);
+    Route::get('/get_by_provider', [AgentController::class, 'getByProvider']);
+    Route::get('/except_google', [AgentController::class, 'getExceptGoogle']);
+    Route::get('/names', [AgentController::class, 'listAgentNames']);
+    Route::post('/groqify/{id}', [AgentController::class, 'groqify']);
 });
 
 Route::group(['prefix' => 'uuid_agents'], function () {
