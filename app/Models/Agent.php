@@ -33,4 +33,6 @@ class Agent extends Model
      * @var string
      */
     protected $keyType = 'int';
+
+    protected $fillable = ['name', 'provider_name'];
 }

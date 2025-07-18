@@ -10,7 +10,7 @@ class AgentService
     {
         return Agent::create([
             'name' => $data['name'],
-            'provider' => $data['provider'],
+            'provider_name' => $data['provider_name'],
         ]);
     }
 
