@@ -14,6 +14,12 @@ class AgentController extends Controller
         return $this->responseJson($agents);
     }
 
+    public function listAgentNames(Request $request)
+    {
+        $agent_names = AgentService::getAgentNames();
+        return $this->responseJson($agent_names);
+    }
+
     public function create(Request $request)
     {
         $new_agent = AgentService::createAgent($request);

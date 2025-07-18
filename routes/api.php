@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'agents'], function () {
     Route::get('/', [AgentController::class, 'get']);
+    Route::get('/names', [AgentController::class, 'listAgentNames']);
     Route::post('/', [AgentController::class, 'create']);
 });
 

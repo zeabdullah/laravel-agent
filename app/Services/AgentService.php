@@ -16,6 +16,15 @@ class AgentService
         ]);
     }
 
+    public static function getAgentNames()
+    {
+        $agent_names = [];
+        foreach (Agent::all() as $agent)
+            $agent_names[] = $agent->name;
+
+        return $agent_names;
+    }
+
     public static function getAllAgents()
     {
         return Agent::all();
