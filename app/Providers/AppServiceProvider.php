@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // increase ORM strictness
+        Model::preventLazyLoading(true); // not sure how this is useful
+        Model::preventSilentlyDiscardingAttributes(true); //
     }
 }

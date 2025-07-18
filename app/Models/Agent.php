@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Agent extends Model
 {
     /**
+     * The database connection that should be used by the model.
+     *
+     * @var string
+     */
+    protected $connection = 'mysql';
+
+    /**
      * The table associated with the model.
      *
      * @var string
@@ -34,5 +41,21 @@ class Agent extends Model
      */
     protected $keyType = 'int';
 
-    protected $fillable = ['name', 'provider_name'];
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'input_tokens_per_unit_cost' => 1.0,
+        'output_tokens_per_unit_cost' => 1.0,
+    ];
+
+
+    protected $fillable = [
+        'name',
+        'provider_name',
+        'input_tokens_per_unit_cost',
+        'output_tokens_per_unit_cost'
+    ];
 }

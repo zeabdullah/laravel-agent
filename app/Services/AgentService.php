@@ -11,6 +11,8 @@ class AgentService
         return Agent::create([
             'name' => $data['name'],
             'provider_name' => $data['provider_name'],
+            'input_tokens_per_unit_cost' => $data['input_tokens_per_unit_cost'],
+            'output_tokens_per_unit_cost' => $data['output_tokens_per_unit_cost'],
         ]);
     }
 
