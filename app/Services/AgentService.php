@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Agent;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 class AgentService
@@ -19,6 +20,20 @@ class AgentService
 
     public static function getAllAgents()
     {
+        return Agent::all();
+    }
+
+    public static function setAgentsPricingToDouble()
+    {
+        Agent::chunk(100, function (Collection $agents) {
+            foreach ($agents as $agent) {
+                $agent->update([
+                    'input_tokens_per_unit_cost' => $agent['input_tokens_per_unit_cost'] * 2,
+                    'output_tokens_per_unit_cost' => $agent['output_tokens_per_unit_cost'] * 2,
+                ]);
+            }
+        });
+
         return Agent::all();
     }
 

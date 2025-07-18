@@ -19,6 +19,8 @@ class AgentFactory extends Factory
         return [
             'name' => $this->faker->words(2, true),
             'provider_name' => $this->faker->randomElement(['google', 'anthropic', 'groq', 'openai', 'xai', 'deepseek']),
+            'input_tokens_per_unit_cost' => $this->faker->randomFloat(2, 1, 20),
+            'output_tokens_per_unit_cost' => $this->faker->randomFloat(2, 1, 20),
         ];
     }
 }

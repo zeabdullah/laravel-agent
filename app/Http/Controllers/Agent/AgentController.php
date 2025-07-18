@@ -26,10 +26,17 @@ class AgentController extends Controller
         return $this->responseJson($agents);
     }
 
+    public function doublePrices(Request $request)
+    {
+        $agents_after_doubling = AgentService::setAgentsPricingToDouble();
+        return $this->responseJson($agents_after_doubling);
+    }
+
+
     public function getExceptGoogle()
     {
-        $allAgentsExceptGoogle = AgentService::getAllAgentsExceptGoogle();
-        return $this->responseJson($allAgentsExceptGoogle);
+        $all_agents_except_google = AgentService::getAllAgentsExceptGoogle();
+        return $this->responseJson($all_agents_except_google);
     }
 
     public function listAgentNames(Request $request)

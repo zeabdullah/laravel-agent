@@ -13,6 +13,6 @@ class AgentSeeder extends Seeder
      */
     public function run(): void
     {
-        Agent::factory(200)->create();
+        Agent::factory(300)->create();
     }
 }
