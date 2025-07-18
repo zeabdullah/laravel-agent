@@ -17,7 +17,8 @@ class AgentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->words(2, true),
+            'provider_name' => $this->faker->randomElement(['google', 'anthropic', 'groq', 'openai', 'xai', 'deepseek']),
         ];
     }
 }
